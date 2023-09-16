@@ -2,7 +2,7 @@ library(assertr)
 library(tidyverse)
 
 # Gereinigter Datensatz laden ---------------------------------------------
-dframe <- read_csv("data/clean/edx_cleaned.csv") 
+dframe <- read_csv("data/clean/edx_cleaned_r.csv") 
 
 
 # Daten einsehen ----------------------------------------------------------
@@ -19,6 +19,6 @@ dframe |>
   assert(within_bounds(0, 1), p_female) |>
   assert(within_bounds(20, 37), age_mean) |>
   assert(in_set(c(0)), prerequisites) |> 
-  assert(is_uniq, id)
+  assert(is_uniq, id) |> 
   assert_rows(num_row_NAs, within_bounds(0, 3), everything())
 
